@@ -1,5 +1,5 @@
 # 🔥 OOPS + CORE JAVA — MASTER INTERVIEW NOTES
-### Kashi ke liye — Complete Flow, Hinglish mein, Interview Q&A format
+### Interview Q&A format
 ### TCS NQT / Cognizant / Accenture LLD Round Ready
 
 ---
