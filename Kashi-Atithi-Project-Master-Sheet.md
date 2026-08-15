@@ -141,7 +141,7 @@ User sends roomId + checkIn + checkOut
 > "Spring gives the core container and dependency injection. Spring Boot adds auto-configuration, starter dependencies, and an embedded server, so I didn't have to manually wire every component or deploy to a separate Tomcat install. It let me focus on booking logic instead of infrastructure setup."
 
 **Q: Why Controller-Service-Repository, why not put everything in the controller?**
-> "Keeping the controller thin means it only handles HTTP concerns. The Service layer owns business rules like the overlap check, and the Repository only talks to the database. This kept each layer testable and meant a change in one layer — say, switching a query — didn't touch the controller at all."
+> "If I put everything in the controller, it would end up handling HTTP requests, business rules, and database code all at once — that becomes hard to manage. So I split it into three layers. The Controller only handles the HTTP request and response. The Service layer holds the actual business logic — for example, checking whether a room is available for the requested dates. And the Repository layer only talks to the database — fetching or saving data. This way, each layer has one clear responsibility. So if I ever need to change my availability logic, I only touch the Service layer — the Controller and Repository don't need to change at all."
 
 **Q: Is this MVC? Is this microservices?**
 > "It uses Spring MVC for request handling, but internally I additionally separated Controller-Service-Repository. And it's a single deployable Spring Boot application — so it's a layered modular monolith, not microservices. I didn't need independent deployment or scaling per module at this stage."
