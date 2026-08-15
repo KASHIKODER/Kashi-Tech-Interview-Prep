@@ -144,7 +144,10 @@ User sends roomId + checkIn + checkOut
 > "If I put everything in the controller, it would end up handling HTTP requests, business rules, and database code all at once — that becomes hard to manage. So I split it into three layers. The Controller only handles the HTTP request and response. The Service layer holds the actual business logic — for example, checking whether a room is available for the requested dates. And the Repository layer only talks to the database — fetching or saving data. This way, each layer has one clear responsibility. So if I ever need to change my availability logic, I only touch the Service layer — the Controller and Repository don't need to change at all."
 
 **Q: Is this MVC? Is this microservices?**
-> "It uses Spring MVC for request handling, but internally I additionally separated Controller-Service-Repository. And it's a single deployable Spring Boot application — so it's a layered modular monolith, not microservices. I didn't need independent deployment or scaling per module at this stage."
+> "Spring MVC is used internally for handling requests — routing and mapping. But in the classic MVC pattern, there's also a View that returns an HTML page. In my case, there's no View — I return JSON, because it's a REST API, and React handles the display separately on the frontend. On top of that, I additionally organized my code into Controller, Service, and Repository layers, which is a separate design choice for structuring the backend.
+
+> As for microservices — no, this is not microservices. It's a single Spring Boot application. I build it as one JAR file, and it runs as one deployment, with all my modules — Users, Rooms, Bookings — sharing the same database. Microservices would mean each of these being a separate, independently deployed application. So I'd call this a layered monolith — one application, but internally well-organized."
+
 
 ---
 
