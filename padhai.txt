@@ -1,0 +1,173 @@
+class :- class ek blueprint / template hai jo kisi bhi entity ki attribute(data) or behaviour(method) ko define krta hai 
+object :- uss blueprint ka actual instance hota hai jo real memory allocate hoti hai aur unique data hota hai 
+class Car {
+    string color;
+    string brand;
+    void drive(){};
+}
+
+Car newCar = new Car();
+
+Constructor = Constructor ek yesa block hai jo object create hote hi automatically call hota hai , taki object ek valid state mai start ho (null garbage value mai start na ho)
+---> class ke naam jesa hi class hota hai 
+---> no return type yha tk ki void bhi nahi 
+---> automatically invoked 
+---> overloading supported hai (multiple constructor ek class mai ho sakte hain)
+
+constructor ke 4 type hote hain :-
+1. Default constructor 
+2. parameterized constructor
+3. private constructor
+4. copy constructor
+
+constructor keypoints :-
+1) constructor is called automatically when class is created using the new keyword.
+2) if you don't create any constructor , java provided default constructor .
+3) constructor can not be inherited but can be invoked via using super() keyword.
+
+code :- 
+class Student{ ---> class
+    int id; ----> blueprint
+    string name;
+    Student(){ ----> constructor
+        id = 101;
+        name = John;
+        System.out.pritln("Constructor called");
+    }
+}
+public class Main{
+    public static void main(string[] args){
+        Student s = new Student();  ---> constuctor called / object created
+    }
+}
+
+Method :- It is a collection of statement , always return a value depend upon its execution 
+---> it may return the value 
+---> it name should not be same as class 
+---> in the case of the method there is no default method provided
+
+Copy Constructor :- Whenever we pass the reference to the constuctor then its called copy contructor. 
+example ---> 
+class Geeks{
+    string name; 
+    int id;
+}
+// parameterized constuctor
+Geeks(string name , int n){
+    this.name = name;
+    this.id = id;
+}
+// copy constructor
+Geeks(Geeks obj2){
+    this.name = obj2.name;
+    this.id = obj2.id;
+}
+Private Constructor :- A private constuctor can not be accesed from outside the class . it is comonly used in Singleton Pattern
+What is Singleton Pattern is , hume ensure karwata hai ki class ka sirf one instance create hua hai 
+
+example:-
+
+class Student{
+    private Student(){
+        system.out.println("Private Constructor Called");
+    }
+    public static vouid displayMessage(){
+        System.out.println("Hello from GFG class")
+    }
+}
+class Main(){
+    public static void main(string[] args){
+        Student x = new Student(); ---> this will give error because of private constructor
+        Student displayMessage();
+    }
+}
+ the Student constructor is declared private so an object of Student cannot be created in main() . the class is accessed only through the static method displayMessage() , which is called directly using the class name;
+
+DeepCopy  vs Shallow Copy --->
+Shallow Copy :- Sirf reference Copy share hota hai , nested object share hote hain , aur ye risky hota hai
+maan lo ki mera x jo hai vo index number 3 pe hai aur mera ya bhi index number 3 pe hai to yha pe copy krte waqt ek sirf reference hi share hua hai na ki exact copy ho gya hai 
+DeepCopy :- hr attribute individual copy hota hai porri trh independent hota hai ek dusre se naye index pe copy wala element bhi store hota hai.
+
+
+
+
+
+
+
+
+
+
+
+
+
+class :- class ek blueprint / template hai jo attribute(data) and behaviour (method) ko define krta hai .
+object uss blueprint ka actual instance hota hai jo memeory allocate hui hai , aur unique data deta hai.
+
+class Car{ -----------> class
+    string color;
+    string brand;
+    void drive(){};
+}
+
+Car myCar = new Car(); -----> object
+
+Constructor = Constructor ek special block hai jo object create krte hi automatically call ho jata hai , taaki object ek valid state mai start ho(null garbage value na ho)
+constructor propertise --> 1) constructor kuch bhi return nahi krta hai na hi void bhi kuch return krta hai
+2) class ke naam jesa hi same naam constructor ka bhi hota hai 
+3) automatically invoked hota hai 
+4) overloading support krta hai multiple constructor bn sakte hain ek class mai
+
+
+constructor keypoint 
+1) constructor is automatically invokded when the class is created by the using new keyword .
+2) if you don't create any constructor for the class then ther is automatically java provide default constuctor 
+3) constructor cannot be inherited but can be invoked by using super() keyword.
+
+code :- 
+class Student(){
+    int id;
+    string name;
+    Student(){ -----> class jesa same exact name
+        id = 101;
+        name = chintu;
+        System.out.println("Constructor Called");
+    }
+}
+public class Main{
+    public static void main(string[] args){
+        Student s = new Student();
+    }
+}
+
+Copy Constructor :- Whenever we pass object reference to the constructor then it is called copy constructor 
+example :- 
+class Student{
+    int id;
+    string name;
+    //copy constructor
+    Student(Student obj1){
+        this.name = obj1.name;
+        this.id = obj1.id;
+    }
+}
+
+Private Constructor :- Private constructor is not accesed from the outer side of the class . it is commonly used in singleton Pattern
+ what is singleton pattern : singleton pattern ensure that there is only one instace is create for a particullar class
+
+example:- 
+class Student{
+    private Student(){
+        system.out.println("Private Constructor Called");
+    }
+    public static void displayMessage(){
+        system.out.println("Hello world of java");
+    }
+}
+class Main(){
+    public static void main(String[] , args){
+        Student S = new Student();
+        Student.displayMessage();
+    }
+}
+
+Deep Copy :-
